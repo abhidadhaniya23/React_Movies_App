@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+
+.header-bg {
+  background: linear-gradient(235deg, #ffffff 0%, #000f25 100%), linear-gradient(180deg, #6100ff 0%, #000000 100%), linear-gradient(235deg, #ffa3ac 0%, #ffa3ac 40%, #00043c calc(40% + 1px), #00043c 60%, #005d6c calc(60% + 1px), #005d6c 70%, #00c9b1 calc(70% + 1px), #00c9b1 100%), linear-gradient(125deg, #ffa3ac 0%, #ffa3ac 40%, #00043c calc(40% + 1px), #00043c 60%, #005d6c calc(60% + 1px), #005d6c 70%, #00c9b1 calc(70% + 1px), #00c9b1 100%);
+  background-blend-mode: soft-light, screen, darken, normal;
+  background-position: center;
+  background-size: cover;
+}
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border: 50px solid #000742;
+  border-color: #000742 transparent #000742 transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+
+.card-shadow:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.hover-scale-duration {
+  transition: 0.3s ease !important;
+}
