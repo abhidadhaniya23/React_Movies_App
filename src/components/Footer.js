@@ -9,8 +9,6 @@ const Footer = () => {
     const genre = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`);
     const data = await genre.json();
     await setGenreItem(data.genres);
-    //https://api.themoviedb.org/3/discover/movie?with_genres=10752&api_key=f6477bc057f6bfbd595d7f9c2304c321
-    //https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US
   }, []);
   return (
     <div className="bg-dark">

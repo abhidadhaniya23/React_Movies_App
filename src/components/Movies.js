@@ -5,12 +5,12 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 const Movies = () => {
   const [movie, setMovie] = useState([]);
-  let [page, setPage] = useState(1);
-  const [term, setTerm] = useState("");
+  // let [page, setPage] = useState(1);
+  // const [term, setTerm] = useState("");
 
   useEffect(async () => {
-    const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${page}`;
-    const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${term}`;
+    const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
+    // const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${term}`;
     // const IMG_API = `https://image.tmdb.org/t/p/w1280`;
 
     const movies = await fetch(FEATURED_API);
