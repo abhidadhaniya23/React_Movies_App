@@ -3,10 +3,9 @@ import MovieCard from "./MovieCard";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const Movies = () => {
+const Movies = ({ genre, movies }) => {
   const [movie, setMovie] = useState([]);
   // let [page, setPage] = useState(1);
-  // const [term, setTerm] = useState("");
 
   useEffect(async () => {
     const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
