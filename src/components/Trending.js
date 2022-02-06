@@ -28,18 +28,18 @@ const Trending = () => {
   }, [page]);
   return (
     <>
-      <div className="bg-gray-100">
+      <div className="py-8 bg-gray-100">
         <div className="container flex flex-row flex-wrap items-center justify-center mx-auto bg-gray-100">
           {movies.map((item, index) => (
             <MovieCard key={index} movieItem={item} />
           ))}
         </div>
-        <div className="flex items-center justify-center my-5 text-2xl">
-          <button onClick={perviousPage} className={`mx-3 btn text-dark ${page === 1 ? "bg-gray-200 cursor-default !border-gray-400" : "bg-light"}`}>
+        <div className="flex flex-col items-center justify-center my-5 md:flex-row">
+          <button onClick={perviousPage} className={`mx-3 text-md md:text-xl btn text-dark ${page === 1 ? "bg-gray-200 cursor-default !border-gray-400" : "bg-light"}`}>
             Previous Page
           </button>
-          <span className="flex items-center justify-center rounded-full w-14 h-14 bg-dark text-light">{page}</span>
-          <button onClick={nextPage} className={`mx-3 btn text-dark ${page === movies.length ? "bg-gray-200 cursor-default !border-gray-400" : "bg-light"}`}>
+          <span className="flex items-center justify-center w-10 h-10 my-3 rounded-full md:my-0 md:w-14 md:h-14 bg-dark text-light">{page}</span>
+          <button onClick={nextPage} className={`mx-3 text-md md:text-xl btn text-dark ${page === movies.length ? "bg-gray-200 cursor-default !border-gray-400" : "bg-light"}`}>
             Next Page
           </button>
         </div>

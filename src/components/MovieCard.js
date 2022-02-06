@@ -29,19 +29,20 @@ const MovieCard = ({ movieItem }) => {
     <>
       {active ? (
         <>
+          {/* <div className="flex flex-row items-center justify-center opacity-40"> */}
           <motion.div animate={{ opacity: 1, top: 20 }} transition={{ delay: 0.3 }} className="fixed top-0 z-30 flex flex-col justify-center opacity-0 bg-gray-50">
-            <div className="flex flex-col items-center justify-center w-[50rem] mx-auto overflow-hidden text-center bg-gray-50">
-              <div className="min-h-[28rem]">
+            <div className="flex flex-col items-center justify-center w-[20rem] md:w-[50rem] mx-auto overflow-hidden text-center bg-gray-50">
+              <div className="md:min-h-[28rem]">
                 <img className="w-full mx-auto" src={`${POSTER_API}${item.backdrop_path}`} alt="" />
               </div>
-              <h2 className="my-3 text-5xl text-gray-900">{item.title || item.original_name || item.original_title}</h2>
-              <p className="px-4 my-2 text-xl text-gray-700">{item.overview.slice(0, 230)}...</p>
-              <div className="flex flex-row items-center justify-center mt-5">
+              <h2 className="my-3 text-3xl text-gray-900 md:text-5xl">{item.title || item.original_name || item.original_title}</h2>
+              <p className="px-4 my-2 text-gray-700 text-md md:text-xl">{item.overview.slice(0, 230)}...</p>
+              <div className="flex flex-row flex-wrap items-center justify-center mt-5">
                 {item.genres.map((genre) => (
-                  <p className="px-2 py-1 mx-1 text-base text-gray-900 bg-gray-200 rounded-md">{genre.name}</p>
+                  <p className="px-2 py-1 m-1 text-base text-gray-900 bg-gray-200 rounded-md">{genre.name}</p>
                 ))}
               </div>
-              <a target="_blank" className="btn bg-light my-7" href={`https://www.youtube.com/watch?v=${video}`}>
+              <a target="_blank" className="text-md btn bg-light my-7" href={`https://www.youtube.com/watch?v=${video}`}>
                 Watch Trailer
               </a>
             </div>
@@ -49,18 +50,19 @@ const MovieCard = ({ movieItem }) => {
               Close
             </button>
           </motion.div>
+          {/* </div> */}
           <motion.div animate={{ opacity: 0.8 }} transition={{ delay: 0 }} className="fixed duration-300 -top-[0rem] z-20 justify-center w-full h-screen bg-black opacity-0"></motion.div>
         </>
       ) : (
         <p></p>
       )}
-      <div onClick={() => handleMovieContent(movieItem.id, movieItem.media_type || "movie")} className="relative m-5 duration-300 bg-white rounded-md cursor-pointer card-shadow w-80">
-        {movieItem.vote_average > 7.5 ? <span className="absolute z-10 flex items-center justify-center w-12 h-12 text-xl font-bold rounded-full -top-5 -right-5 text-green bg-dark">{movieItem.vote_average}</span> : movieItem.vote_average > 6 ? <span className="absolute z-10 flex items-center justify-center w-12 h-12 text-xl font-bold rounded-full -top-5 -right-5 text-yellow bg-dark">{movieItem.vote_average}</span> : <span className="absolute z-10 flex items-center justify-center w-12 h-12 text-xl font-bold rounded-full -top-5 -right-5 text-red bg-dark">{movieItem.vote_average}</span>}
+      <motion.div onClick={() => handleMovieContent(movieItem.id, movieItem.media_type || "movie")} className="relative m-5 duration-300 bg-white rounded-md cursor-pointer card-shadow w-80">
+        {movieItem.vote_average > 7.5 ? <span className="absolute z-10 flex items-center justify-center w-12 h-12 font-normal rounded-full md:font-bold text-md md:text-xl -top-5 -right-5 text-green bg-dark">{movieItem.vote_average}</span> : movieItem.vote_average > 6 ? <span className="absolute z-10 flex items-center justify-center w-12 h-12 font-normal rounded-full md:font-bold text-md md:text-xl -top-5 -right-5 text-yellow bg-dark">{movieItem.vote_average}</span> : <span className="absolute z-10 flex items-center justify-center w-12 h-12 font-normal rounded-full md:font-bold text-md md:text-xl -top-5 -right-5 text-red bg-dark">{movieItem.vote_average}</span>}
         <div className="w-full overflow-hidden h-[30rem]">{!movieItem.poster_path ? <LazyLoadImage src={`https://i.pinimg.com/originals/51/9c/18/519c18a68160ffb6d5aa5d92cd1e3d59.jpg`} alt="" effect="blur" /> : <LazyLoadImage className="hover-scale-duration hover:scale-110" src={`${IMG_API}${movieItem.poster_path}`} alt="" effect="blur" />}</div>
         <div className="flex flex-row items-center justify-center p-3 text-2xl">
           <span className="text-center">{movieItem.title || movieItem.name || movieItem.original_title || movieItem.original_name}</span>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
