@@ -10,9 +10,6 @@ const Movies = () => {
 
   useEffect(async () => {
     const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
-    // const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${term}`;
-    // const IMG_API = `https://image.tmdb.org/t/p/w1280`;
-
     const movies = await fetch(FEATURED_API);
     const data = await movies.json();
     setMovie(data.results);

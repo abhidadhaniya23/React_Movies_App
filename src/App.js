@@ -7,8 +7,17 @@ import Footer from "./components/Footer";
 import Genre from "./components/Genre";
 import SearchMovies from "./components/SearchMovies";
 import MovieDetails from "./components/MovieDetails";
+import MovieCard from "./components/MovieCard";
 
 const App = () => {
+  const [genre, setGenre] = useState("");
+
+  useEffect(() => {
+    // all api keys
+    const movieGenreApi = `https://api.themoviedb.org/3/discover/movie?with_genres=${genreID}&api_key=${API_KEY}&page=1`;
+    const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
+    const movieSearchApi = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${movieName}`;
+  }, [genre, movieItem]);
   return (
     <BrowserRouter>
       <Header />
@@ -16,7 +25,7 @@ const App = () => {
         <Route path="/" exact element={<Movies />} />
         <Route path="/genre/:genre/:id" element={<Genre />} />
         <Route path="/movie/:name/:id" element={<MovieDetails />} />
-        <Route path="/movie/:name" exact element={<SearchMovies />} />
+        {/* <Route path="/movie/:name" exact element={<SearchMovies />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>
