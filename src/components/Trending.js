@@ -18,10 +18,15 @@ const Trending = () => {
   };
 
   useEffect(async () => {
-    window.scroll(0, 0);
+    if (page > 1) {
+      window.scroll(0, 530);
+    } else {
+      window.scroll(0, 0);
+    }
     const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`);
     setMovies(data.results);
   }, [page]);
+
   return (
     <>
       <div className="py-8 bg-gray-100 min-h-[50rem]">
