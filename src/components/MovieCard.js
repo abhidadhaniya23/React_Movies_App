@@ -40,7 +40,9 @@ const MovieCard = ({ movieItem }) => {
                 <p className="px-4 my-2 text-gray-700 text-md md:text-xl">{item.overview.slice(0, 230)}...</p>
                 <div className="flex flex-row flex-wrap items-center justify-center mt-5">
                   {item.genres.map((genre) => (
-                    <p className="px-2 py-1 m-1 text-base text-gray-900 bg-gray-200 rounded-md">{genre.name}</p>
+                    <p key={genre.id} className="px-2 py-1 m-1 text-base text-gray-900 bg-gray-200 rounded-md">
+                      {genre.name}
+                    </p>
                   ))}
                 </div>
                 <a target="_blank" className="text-md btn bg-light my-7" href={`https://www.youtube.com/watch?v=${video}`}>

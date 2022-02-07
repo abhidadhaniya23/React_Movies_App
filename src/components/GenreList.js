@@ -26,7 +26,7 @@ const GenreList = ({ searchGenre }) => {
         },
         handleGenre)
       }
-      className="bg-dark py-2 px-5 text-xl rounded-md text-light"
+      className="px-5 py-2 text-xl rounded-md bg-dark text-light"
     >
       {genreItem.map((item) => (
         <option key={item.id} id={item.id} value={item.id}>
