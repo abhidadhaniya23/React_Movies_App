@@ -13,7 +13,7 @@ const Header = () => {
         {/* <button onClick={handleActive} className="px-4 py-3 text-2xl rounded-md bg-dark text-light">
           Get Genres <i class="relative top-[2px] ml-2 fas fa-chevron-down"></i>
         </button> */}
-        <div style={{ color: "#fff", opacity: "0.6", fontSize: "2rem" }}>
+        <div className="text-xl md:text-2xl" style={{ color: "#fff", opacity: "0.6" }}>
           <Typed strings={["Search Movies By Genre", "Watch Trending Movies", "Search your favorite movies"]} typeSpeed={80} backSpeed={50} loop />
         </div>
       </div>

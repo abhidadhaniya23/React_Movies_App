@@ -61,6 +61,7 @@ const Movies = () => {
       <motion.div initial={{ opacity: 0, top: -30, position: "relative" }} animate={{ opacity: 1, top: 0 }} transition={{ duration: 0.4, delay: 0.5 }} className="container flex flex-row flex-wrap items-center justify-center px-2 mx-auto mb-10 mt-14 md:px-20">
         {genreList.map((genre) => (
           <button
+            className="text-lg md:text-xl"
             key={genre.id}
             onClick={() => {
               setGenreID(genre.id);
