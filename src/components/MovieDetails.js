@@ -39,10 +39,10 @@ const SearchMovies = () => {
           <div className="container mx-auto my-10">
             <div className="w-full min-h-[50rem] text-center overflow-hidden">
               <img className="!w-full rounded-md shadow-lg" src={`${IMG_API}${movie.backdrop_path}`} alt="" />
-              <h1 className="text-5xl text-dark my-5">{movie.title}</h1>
-              <p className="leading-5 mx-auto max-w-5xl my-3">{movie.overview}</p>
-              <p className="text-xl mt-2 mb-4">Released on : {movie.release_date}</p>
-              <div className="mx-auto w-20 h-20">
+              <h1 className="my-5 text-5xl text-dark">{movie.title}</h1>
+              <p className="max-w-5xl mx-auto my-3 leading-5">{movie.overview}</p>
+              <p className="mt-2 mb-4 text-xl">Released on : {movie.release_date}</p>
+              <div className="w-20 h-20 mx-auto">
                 <CircularProgressbar styles={buildStyles({ textColor: "#000742", pathColor: `rgba(0, 7, 66, ${(movie.vote_average * 10) / 100})` })} value={movie.vote_average * 10} text={`${movie.vote_average * 10}%`} />
               </div>
             </div>

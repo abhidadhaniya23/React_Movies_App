@@ -7,8 +7,6 @@ import { AnimatePresence, motion } from "framer-motion";
 const MovieCard = ({ movieItem }) => {
   const [video, setVideo] = useState("");
   const [item, setItem] = useState();
-  // const [media, setMedia] = useState("");
-  // const [Id, setId] = useState("");
   const [active, setActive] = useState(false);
 
   const handleMovieContent = async (id, media) => {
@@ -42,7 +40,7 @@ const MovieCard = ({ movieItem }) => {
                     </p>
                   ))}
                 </div>
-                <a target="_blank" className="text-md btn bg-light my-7" href={`https://www.youtube.com/watch?v=${video}`}>
+                <a target="_blank" className="text-md btn bg-light my-7" rel="noreferrer" href={`https://www.youtube.com/watch?v=${video}`}>
                   Watch Trailer
                 </a>
               </div>
@@ -51,7 +49,7 @@ const MovieCard = ({ movieItem }) => {
               </button>
             </motion.div>
             {/* </div> */}
-            <motion.div animate={{ opacity: 0.8 }} exit={{ opacity: 0 }} onClick={() => setActive(false)} transition={{ duration: 0.4 }} transition={{ delay: 0 }} className="fixed -top-[0rem] z-20 justify-center w-full h-screen bg-black opacity-0"></motion.div>
+            <motion.div animate={{ opacity: 0.8 }} exit={{ opacity: 0 }} onClick={() => setActive(false)} transition={{ duration: 0.4, delay: 0 }} className="fixed -top-[0rem] z-20 justify-center w-full h-screen bg-black opacity-0"></motion.div>
           </>
         )}
       </AnimatePresence>

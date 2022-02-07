@@ -10,8 +10,6 @@ const Movies = () => {
   const [page, setPage] = useState(1);
   const [genreID, setGenreID] = useState();
   const [genreList, setGenreList] = useState([]);
-  // const [movieName, setMovieName] = useState(MovieNameToSearch);
-  // const [searchedMovie, setSearchedMovie] = useState([]);
 
   const perviousPage = () => {
     if (page !== 1) {
@@ -26,13 +24,6 @@ const Movies = () => {
     const genreListApi = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`);
     setGenreList(genreListApi.data.genres);
   };
-
-  // useEffect(async () => {
-  //   const searchMovieItems = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${MovieNameToSearch}&page=${page}`);
-  //   setPage(1);
-  //   setMovie(searchMovieItems.data.results);
-  //   // movie(searchMovieItems.data.results);
-  // }, [MovieNameToSearch]);
 
   useEffect(() => {
     getGenreList();

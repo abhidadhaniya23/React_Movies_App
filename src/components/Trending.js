@@ -6,8 +6,6 @@ const Trending = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
 
-  // const trendingApi = `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`;
-
   const perviousPage = () => {
     if (page !== 1) {
       setPage(page - 1);
