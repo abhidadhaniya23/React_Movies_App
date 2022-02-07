@@ -18,9 +18,6 @@ const MovieCard = ({ movieItem }) => {
     setItem(movieData.data);
     setActive(true);
   };
-  const handleActive = () => {
-    setActive(false);
-  };
 
   const IMG_API = `https://image.tmdb.org/t/p/w780`;
   const POSTER_API = `https://image.tmdb.org/t/p/w1280`;
@@ -49,12 +46,12 @@ const MovieCard = ({ movieItem }) => {
                   Watch Trailer
                 </a>
               </div>
-              <button onClick={handleActive} className="btn bg-light text-dark">
+              <button onClick={() => setActive(false)} className="btn bg-light text-dark">
                 Close
               </button>
             </motion.div>
             {/* </div> */}
-            <motion.div animate={{ opacity: 0.8 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }} transition={{ delay: 0 }} className="fixed -top-[0rem] z-20 justify-center w-full h-screen bg-black opacity-0"></motion.div>
+            <motion.div animate={{ opacity: 0.8 }} exit={{ opacity: 0 }} onClick={() => setActive(false)} transition={{ duration: 0.4 }} transition={{ delay: 0 }} className="fixed -top-[0rem] z-20 justify-center w-full h-screen bg-black opacity-0"></motion.div>
           </>
         )}
       </AnimatePresence>
