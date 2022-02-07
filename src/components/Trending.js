@@ -6,12 +6,7 @@ const Trending = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
 
-  const trendingApi = `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`;
-
-  const getMoviesData = async () => {
-    const { data } = await axios.get(trendingApi);
-    setMovies(data.results);
-  };
+  // const trendingApi = `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`;
 
   const perviousPage = () => {
     if (page !== 1) {
@@ -22,9 +17,10 @@ const Trending = () => {
     setPage(page + 1);
   };
 
-  useEffect(() => {
+  useEffect(async () => {
     window.scroll(0, 0);
-    getMoviesData();
+    const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`);
+    setMovies(data.results);
   }, [page]);
   return (
     <>
