@@ -29,14 +29,14 @@ const Movies = ({ genre, movies }) => {
 
   return (
     <>
-      <div className="py-8 bg-gray-100">
+      <div className="py-8 bg-gray-100 min-h-[20rem]">
         <div className="container flex flex-row flex-wrap items-center justify-center mx-auto">
           {movie.map((item, index) => (
             <MovieCard key={index} movieItem={item} />
           ))}
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center py-5 text-2xl bg-gray-100 md:flex-row">
+      <div className="flex flex-col items-center justify-center py-5 text-2xl bg-gray-100 md:flex-row mb-[7rem]">
         <button onClick={perviousPage} className={`mx-3 btn text-dark ${page === 1 ? "bg-gray-200 cursor-default !border-gray-400" : "bg-light"}`}>
           Previous Page
         </button>

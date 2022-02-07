@@ -83,6 +83,11 @@
   transition: 0.3s ease !important;
 }
 
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* From cssbuttons.io by @adamgiebl */
 .btn {
   position: relative;

@@ -28,13 +28,13 @@ const Trending = () => {
   }, [page]);
   return (
     <>
-      <div className="py-8 bg-gray-100">
+      <div className="py-8 bg-gray-100 min-h-[50rem]">
         <div className="container flex flex-row flex-wrap items-center justify-center mx-auto bg-gray-100">
           {movies.map((item, index) => (
             <MovieCard key={index} movieItem={item} />
           ))}
         </div>
-        <div className="flex flex-col items-center justify-center my-5 md:flex-row">
+        <div className="flex flex-col items-center justify-center my-5 md:flex-row mb-[7rem]">
           <button onClick={perviousPage} className={`mx-3 text-md md:text-xl btn text-dark ${page === 1 ? "bg-gray-200 cursor-default !border-gray-400" : "bg-light"}`}>
             Previous Page
           </button>
