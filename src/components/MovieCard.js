@@ -40,12 +40,12 @@ const MovieCard = ({ movieItem }) => {
                 </div>
                 <h2 className="mb-3 text-3xl text-gray-900 mt-7 md:text-5xl">{item.name || item.title || item.original_name || item.original_title}</h2>
                 <p className="px-4 my-2 text-gray-700 text-md md:text-xl">{item.overview.slice(0, 270)}...</p>
-                <div className="flex flex-row pb-5 min-h-[12rem] md:min-h-[18rem] mt-8 mb-5 max-w-full overflow-x-scroll relative">
+                <div className="flex flex-row pb-5 min-h-[14rem] md:min-h-[18rem] mt-8 mb-5 max-w-full overflow-y-auto overflow-x-scroll relative">
                   {cast.map((cast) => (
                     <div key={cast.id} className={`flex min-w-[5.6rem] md:min-w-[9rem] md:max-w-[9rem] max-w-[5.6rem] justify-start items-center overflow-hidden flex-col mx-1 ${!cast.profile_path ? "hidden" : ""}`}>
-                      <img className={`rounded-md w-full min-h-[80%]`} src={`${cast.profile_path ? CAST_IMG_API + cast.profile_path : castImgNotAvailable}`} />
-                      <p className="text-base text-dark md:text-lg">{cast.name}</p>
-                      <p className={`text-dark text-sm md:text-base ${!cast.character ? "hidden" : ""}`}>({cast.character})</p>
+                      <img className={`rounded-md w-full min-h-[65%] md:min-h-[80%]`} src={`${cast.profile_path ? CAST_IMG_API + cast.profile_path : castImgNotAvailable}`} alt={cast.name} />
+                      <p className="text-sm font-medium text-dark md:text-lg">{cast.name}</p>
+                      <p className={`text-dark text-xs md:text-base opacity-80 md:opacity-100 ${!cast.character ? "hidden" : ""}`}>({cast.character})</p>
                     </div>
                   ))}
                 </div>
@@ -70,7 +70,7 @@ const MovieCard = ({ movieItem }) => {
       </AnimatePresence>
       <motion.div initial={{ opacity: 0, top: -50, position: "relative" }} animate={{ opacity: 1, top: 0 }} transition={{ duration: 0.3, delay: 0.2 }} onClick={() => handleMovieContent(movieItem.id, movieItem.media_type || "movie")} className={`${movieItem.vote_average === 0 ? "hidden" : ""} relative px-2 pt-2 m-5 duration-300 bg-white rounded-lg cursor-pointer hover:scale-100 md:hover:scale-105 card hover:bg-dark hover:text-light card-shadow w-72 md:w-80`}>
         {movieItem.vote_average > 7.5 ? <span className="absolute z-10 flex items-center justify-center w-12 h-12 font-normal rounded-full md:font-bold text-md md:text-xl -top-5 -right-5 text-green bg-dark">{movieItem.vote_average}</span> : movieItem.vote_average > 6 ? <span className="absolute z-10 flex items-center justify-center w-12 h-12 font-normal rounded-full md:font-bold text-md md:text-xl -top-5 -right-5 text-yellow bg-dark">{movieItem.vote_average}</span> : <span className="absolute z-10 flex items-center justify-center w-12 h-12 font-normal rounded-full md:font-bold text-md md:text-xl -top-5 -right-5 text-red bg-dark">{movieItem.vote_average}</span>}
-        <div className="w-full overflow-hidden min-h-[27rem]">{!movieItem.poster_path ? <LazyLoadImage src={`https://i.pinimg.com/originals/51/9c/18/519c18a68160ffb6d5aa5d92cd1e3d59.jpg`} alt="" effect="blur" /> : <LazyLoadImage className="hover-scale-duration" src={`${IMG_API}${movieItem.poster_path}`} alt="" effect="blur" />}</div>
+        <div className="w-full overflow-hidden min-h-[25rem] md:min-h-[27rem]">{!movieItem.poster_path ? <LazyLoadImage src={`https://i.pinimg.com/originals/51/9c/18/519c18a68160ffb6d5aa5d92cd1e3d59.jpg`} alt="" effect="blur" /> : <LazyLoadImage className="hover-scale-duration" src={`${IMG_API}${movieItem.poster_path}`} alt="" effect="blur" />}</div>
         <div className="flex flex-row items-center justify-center p-3 text-2xl">
           <span className="text-center">{movieItem.name || movieItem.title || movieItem.original_title || movieItem.original_name}</span>
         </div>

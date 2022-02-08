@@ -31,7 +31,7 @@ const SearchMovies = () => {
           setPage(1);
         }}
       />
-      <div className={`py-8 min-h-[20rem] ${!movie ? "hidden" : ""}`}>
+      <div className="py-8 min-h-[20rem]">
         <div className="container flex flex-row flex-wrap items-center justify-center mx-auto">
           {movies.map((item) => (
             <MovieCard key={item.id} movieItem={item} />
