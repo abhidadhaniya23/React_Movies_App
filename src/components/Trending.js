@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
+import { motion } from "framer-motion";
 
 const Trending = () => {
   const [movies, setMovies] = useState([]);
@@ -27,21 +28,21 @@ const Trending = () => {
 
   return (
     <>
-      <div className="py-8 bg-gray-100 min-h-[50rem]">
-        <div className="container flex flex-row flex-wrap items-center justify-center mx-auto bg-gray-100">
+      <div className="py-8 movies-bg min-h-[50rem]">
+        <div className="container flex flex-row flex-wrap items-center justify-center mx-auto">
           {movies.map((item, index) => (
             <MovieCard key={index} movieItem={item} />
           ))}
         </div>
-        <div className="flex flex-col items-center justify-center my-5 md:flex-row mb-[7rem]">
-          <button onClick={perviousPage} className={`mx-3 text-md md:text-xl btn text-dark ${page === 1 ? "bg-gray-200 cursor-default !border-gray-400" : "bg-light"}`}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }} className="flex flex-col items-center justify-center my-5 md:flex-row mb-[7rem]">
+          <button onClick={perviousPage} className={`mx-3 text-md md:text-xl btn text-dark ${page === 1 ? "bg-gray-200 !shadow-none cursor-default !border-gray-400" : "bg-light"}`}>
             Previous Page
           </button>
           <span className="flex items-center justify-center w-10 h-10 my-3 rounded-full md:my-0 md:w-14 md:h-14 bg-dark text-light">{page}</span>
-          <button onClick={nextPage} className={`mx-3 text-md md:text-xl btn text-dark ${page === movies.length ? "bg-gray-200 cursor-default !border-gray-400" : "bg-light"}`}>
+          <button onClick={nextPage} className={`mx-3 text-md md:text-xl btn text-dark ${page === movies.length ? "bg-gray-200 !shadow-none cursor-default !border-gray-400" : "bg-light"}`}>
             Next Page
           </button>
-        </div>
+        </motion.div>
       </div>
     </>
   );

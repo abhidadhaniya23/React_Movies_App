@@ -38,10 +38,14 @@
 }
 
 .header-bg {
-  background: linear-gradient(235deg, #ffffff 0%, #000f25 100%), linear-gradient(180deg, #6100ff 0%, #000000 100%), linear-gradient(235deg, #ffa3ac 0%, #ffa3ac 40%, #00043c calc(40% + 1px), #00043c 60%, #005d6c calc(60% + 1px), #005d6c 70%, #00c9b1 calc(70% + 1px), #00c9b1 100%), linear-gradient(125deg, #ffa3ac 0%, #ffa3ac 40%, #00043c calc(40% + 1px), #00043c 60%, #005d6c calc(60% + 1px), #005d6c 70%, #00c9b1 calc(70% + 1px), #00c9b1 100%);
-  background-blend-mode: soft-light, screen, darken, normal;
-  background-position: center;
+  background: radial-gradient(100% 225% at 100% 0%, #ff0000 0%, #000000 100%), linear-gradient(236deg, #00c2ff 0%, #000000 100%), linear-gradient(135deg, #cdffeb 0%, #cdffeb 36%, #009f9d 36%, #009f9d 60%, #07456f 60%, #07456f 67%, #0f0a3c 67%, #0f0a3c 100%);
+  background-blend-mode: overlay, hard-light, normal;
+}
+.movies-bg {
+  background: url("../public/Assets/bg.png");
   background-size: cover;
+  position: center;
+  /* background: linear-gradient(125deg, #ecfcff 0%, #ecfcff 40%, #b2fcff calc(40% + 1px), #b2fcff 60%, #5edfff calc(60% + 1px), #5edfff 72%, #3e64ff calc(72% + 1px), #3e64ff 100%); */
 }
 .lds-hourglass {
   display: inline-block;
@@ -98,8 +102,8 @@ html {
   border-bottom: 5px solid #42cdff;
   -webkit-transition: all 0.1s;
   transition: all 0.1s;
-  -webkit-box-shadow: 0px 8px 20px -3px rgb(0 0 0 / 27%);
-  box-shadow: 0px 8px 20px -3px rgb(0 0 0 / 18%);
+  -webkit-box-shadow: 0px 8px 20px -3px #42cdff66;
+  box-shadow: 0px 8px 20px -3px #42cdff66;
   @apply px-5 py-2 md:px-10 md:py-3;
 }
 
@@ -110,4 +114,29 @@ html {
   -ms-transform: translate(0px, 5px);
   transform: translate(0px, 5px);
   border-bottom: 1px solid #84dfff;
+}
+
+/* scroll bar */
+/* width */
+::-webkit-scrollbar {
+  height: 5px;
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 500px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #080b2e2e;
+  border-radius: 500px;
+  transition: 0.4s ease;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #7a7f9c;
 }

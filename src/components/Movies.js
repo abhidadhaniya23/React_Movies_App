@@ -52,19 +52,18 @@ const Movies = () => {
       <motion.div initial={{ opacity: 0, top: -30, position: "relative" }} animate={{ opacity: 1, top: 0 }} transition={{ duration: 0.4, delay: 0.5 }} className="container flex flex-row flex-wrap items-center justify-center px-2 mx-auto mb-10 mt-14 md:px-20">
         {genreList.map((genre) => (
           <button
-            className="text-lg md:text-xl"
             key={genre.id}
             onClick={() => {
               setGenreID(genre.id);
               setPage(1);
             }}
-            className={`mx-2 my-2 !py-[0.4rem] !px-[0.8rem] text-lg btn ${genre.id === genreID ? "bg-dark text-light" : "bg-light"}`}
+            className={`text-sm md:text-xl mx-1 md:mx-2 my-1 md:my-2 !py-[0.4rem] !px-[0.8rem] btn ${genre.id === genreID ? "bg-dark text-light" : "bg-light"}`}
           >
             {genre.name}
           </button>
         ))}
       </motion.div>
-      <div className="py-8 bg-gray-100 min-h-[20rem]">
+      <div className=" pt-3 md:pt-8 pb-8 bg-gray-100 min-h-[20rem]">
         <div className="container flex flex-row flex-wrap items-center justify-center mx-auto">
           {movie.map((item) => (
             <MovieCard key={item.id} movieItem={item} />
@@ -72,11 +71,11 @@ const Movies = () => {
         </div>
       </div>
       <div className={` flex flex-col items-center justify-center py-5 text-lg md:text-2xl bg-gray-100 md:flex-row mb-[7rem]`}>
-        <button onClick={perviousPage} className={`mx-3 btn text-dark ${page === 1 ? "bg-gray-200 cursor-default !border-gray-400" : "bg-light"}`}>
+        <button onClick={perviousPage} className={`mx-3 btn text-dark ${page === 1 ? "bg-gray-200 !shadow-none cursor-default !border-gray-400" : "bg-light"}`}>
           Previous Page
         </button>
         <span className="flex items-center justify-center w-10 h-10 my-3 rounded-full md:my-0 md:w-14 md:h-14 bg-dark text-light">{page}</span>
-        <button onClick={nextPage} className={`mx-3 btn text-dark ${page === movie.length ? "bg-gray-200 cursor-default !border-gray-400" : "bg-light"}`}>
+        <button onClick={nextPage} className={`mx-3 btn text-dark ${page === movie.length ? "bg-gray-200 !shadow-none cursor-default !border-gray-400" : "bg-light"}`}>
           Next Page
         </button>
       </div>

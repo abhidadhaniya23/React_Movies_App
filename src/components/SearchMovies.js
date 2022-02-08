@@ -43,7 +43,7 @@ const SearchMovies = () => {
           onClick={() => {
             page !== 1 ? setPage(page - 1) : setPage(1);
           }}
-          className={`mx-3 btn text-dark ${page === 1 ? "bg-gray-200 cursor-default !border-gray-400" : "bg-light"}`}
+          className={`mx-3 btn text-dark ${page === 1 ? "bg-gray-200 !shadow-none cursor-default !border-gray-400" : "bg-light"}`}
         >
           Previous Page
         </button>
@@ -52,7 +52,7 @@ const SearchMovies = () => {
           onClick={() => {
             numberOfPages !== page ? setPage(page + 1) : setPage(numberOfPages);
           }}
-          className={`mx-3 btn text-dark ${page === numberOfPages ? "bg-gray-200 cursor-default !border-gray-400" : "bg-light"}`}
+          className={`mx-3 btn text-dark ${page === numberOfPages ? "bg-gray-200 !shadow-none cursor-default !border-gray-400" : "bg-light"}`}
         >
           Next Page
         </button>

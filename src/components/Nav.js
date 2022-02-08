@@ -26,10 +26,10 @@ const Nav = () => {
         <br className="md:hidden" />
         Developer
       </a>
-      <a className="px-1 md:px-4 mx-0.5 text-base text-center duration-100 md:mx-2 active:scale-90 md:text-xl opacity-60 hover:opacity-100" rel="noreferrer" href="https://github.com/abhidadhaniya23" target="_blank">
-        <i className="md:mr-3 fab fa-github"></i>
+      <a className="px-1 md:px-4 mx-0.5 text-base text-center duration-100 md:mx-2 active:scale-90 md:text-xl opacity-60 hover:opacity-100" rel="noreferrer" href="https://twitter.com/AbhiDadhaniya3" target="_blank">
+        <i className="md:mr-3 fab fa-twitter"></i>
         <br className="md:hidden" />
-        Github
+        Follow
       </a>
     </div>
   );
