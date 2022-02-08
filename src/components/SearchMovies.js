@@ -10,6 +10,7 @@ const SearchMovies = () => {
   const [page, setPage] = useState(1);
   const [movie, searchMovie] = useState("");
   const [numberOfPages, setNumberOfPages] = useState();
+  const [resultFounded, setResultFounded] = useState(true);
 
   useEffect(async () => {
     if (page > 1 || movie) {
@@ -21,6 +22,11 @@ const SearchMovies = () => {
       const searchMovieData = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${movie}&page=${page}`);
       setNumberOfPages(searchMovieData.data.total_pages);
       setMovies(searchMovieData.data.results);
+      if (searchMovieData.data.results.length > 0) {
+        setResultFounded(true);
+      } else {
+        setResultFounded(false);
+      }
     }
   }, [movie, page]);
   return (
@@ -31,6 +37,9 @@ const SearchMovies = () => {
           setPage(1);
         }}
       />
+      <div className={`${resultFounded ? "hidden" : ""} container mx-auto my-16 text-2xl text-center md:text-3xl`}>
+        <h1>Sorry, "{movie}" Movie Not Founded !</h1>
+      </div>
       <div className="py-8 min-h-[20rem]">
         <div className="container flex flex-row flex-wrap items-center justify-center mx-auto">
           {movies.map((item) => (
@@ -38,7 +47,7 @@ const SearchMovies = () => {
           ))}
         </div>
       </div>
-      <div className={`${!movie ? "opacity-0" : ""} flex items-center justify-center py-5 text-lg md:text-2xl flex-row mb-[7rem]`}>
+      <div className={`${!resultFounded ? "opacity-0" : ""} flex items-center justify-center py-5 text-lg md:text-2xl flex-row mb-[7rem]`}>
         <button
           onClick={() => {
             page !== 1 ? setPage(page - 1) : setPage(1);
