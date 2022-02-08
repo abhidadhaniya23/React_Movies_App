@@ -63,14 +63,14 @@ const Movies = () => {
           </button>
         ))}
       </motion.div>
-      <div className=" pt-3 md:pt-8 pb-8 bg-gray-100 min-h-[20rem]">
+      <div className=" pt-3 md:pt-8 pb-8 min-h-[20rem]">
         <div className="container flex flex-row flex-wrap items-center justify-center mx-auto">
           {movie.map((item) => (
             <MovieCard key={item.id} movieItem={item} />
           ))}
         </div>
       </div>
-      <div className={` flex flex-col items-center justify-center py-5 text-lg md:text-2xl bg-gray-100 md:flex-row mb-[7rem]`}>
+      <div className={` flex items-center justify-center py-5 text-lg md:text-2xl flex-row mb-[7rem]`}>
         <button onClick={perviousPage} className={`mx-3 btn text-dark ${page === 1 ? "bg-gray-200 !shadow-none cursor-default !border-gray-400" : "bg-light"}`}>
           Previous Page
         </button>

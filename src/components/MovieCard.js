@@ -40,9 +40,9 @@ const MovieCard = ({ movieItem }) => {
                 </div>
                 <h2 className="mt-7 mb-3 text-3xl text-gray-900 md:text-5xl">{item.name || item.title || item.original_name || item.original_title}</h2>
                 <p className="px-4 my-2 text-gray-700 text-md md:text-xl">{item.overview.slice(0, 270)}...</p>
-                <div className="flex flex-row pb-5 min-h-[18rem] mt-8 mb-5 max-w-full overflow-x-scroll relative">
+                <div className="flex flex-row pb-5 min-h-[12rem] md:min-h-[18rem] mt-8 mb-5 max-w-full overflow-x-scroll relative">
                   {cast.map((cast) => (
-                    <div key={cast.id} className={`flex min-w-[9rem] max-w-[9rem] justify-start items-center overflow-hidden flex-col mx-1 ${!cast.profile_path ? "hidden" : ""}`}>
+                    <div key={cast.id} className={`flex min-w-[5.6rem] md:min-w-[9rem] md:max-w-[9rem] max-w-[5.6rem] justify-start items-center overflow-hidden flex-col mx-1 ${!cast.profile_path ? "hidden" : ""}`}>
                       <img className={`rounded-md w-full min-h-[80%]`} src={`${cast.profile_path ? CAST_IMG_API + cast.profile_path : castImgNotAvailable}`} />
                       <p className="text-dark text-lg">{cast.name}</p>
                       <p className={`text-dark text-base ${!cast.character ? "hidden" : ""}`}>({cast.character})</p>

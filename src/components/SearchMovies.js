@@ -31,14 +31,14 @@ const SearchMovies = () => {
           setPage(1);
         }}
       />
-      <div className={`py-8 bg-gray-100 min-h-[20rem] ${!movie ? "hidden" : ""}`}>
+      <div className={`py-8 min-h-[20rem] ${!movie ? "hidden" : ""}`}>
         <div className="container flex flex-row flex-wrap items-center justify-center mx-auto">
           {movies.map((item) => (
             <MovieCard key={item.id} movieItem={item} />
           ))}
         </div>
       </div>
-      <div className={`${!movie ? "opacity-0" : ""} flex flex-col items-center justify-center py-5 text-lg md:text-2xl bg-gray-100 md:flex-row mb-[7rem]`}>
+      <div className={`${!movie ? "opacity-0" : ""} flex items-center justify-center py-5 text-lg md:text-2xl flex-row mb-[7rem]`}>
         <button
           onClick={() => {
             page !== 1 ? setPage(page - 1) : setPage(1);
