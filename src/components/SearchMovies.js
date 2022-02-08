@@ -47,7 +47,7 @@ const SearchMovies = () => {
           ))}
         </div>
       </div>
-      <div className={`${!resultFounded ? "opacity-0" : ""} flex items-center justify-center py-5 text-lg md:text-2xl flex-row mb-[7rem]`}>
+      <div className={`${movies.length == 0 ? "opacity-0" : "opacity-100"} flex items-center justify-center py-5 text-lg md:text-2xl flex-row mb-[7rem]`}>
         <button
           onClick={() => {
             page !== 1 ? setPage(page - 1) : setPage(1);
