@@ -36,27 +36,27 @@ const MovieCard = ({ movieItem }) => {
             <motion.div animate={{ opacity: 1, top: 20 }} initial={{ top: 0 }} exit={{ top: 0, opacity: 0 }} transition={{ duration: 0.2 }} className="max-h-[85vh] md:max-h-[95vh] fixed z-30 flex flex-col justify-center items-stretch opacity-0 bg-gray-50">
               <div className="flex flex-col items-center justify-start w-[20rem] overflow-y-scroll md:w-[60rem] mx-auto relative text-center bg-gray-50">
                 <div className="w-full">
-                  <img className="w-full h-full object-cover" src={`${item.backdrop_path ? IMG_API + item.backdrop_path : COVER_NOT_AVAILABLE}`} alt="" />
+                  <img className="object-cover w-full h-full" src={`${item.backdrop_path ? IMG_API + item.backdrop_path : COVER_NOT_AVAILABLE}`} alt="" />
                 </div>
-                <h2 className="mt-7 mb-3 text-3xl text-gray-900 md:text-5xl">{item.name || item.title || item.original_name || item.original_title}</h2>
+                <h2 className="mb-3 text-3xl text-gray-900 mt-7 md:text-5xl">{item.name || item.title || item.original_name || item.original_title}</h2>
                 <p className="px-4 my-2 text-gray-700 text-md md:text-xl">{item.overview.slice(0, 270)}...</p>
                 <div className="flex flex-row pb-5 min-h-[12rem] md:min-h-[18rem] mt-8 mb-5 max-w-full overflow-x-scroll relative">
                   {cast.map((cast) => (
                     <div key={cast.id} className={`flex min-w-[5.6rem] md:min-w-[9rem] md:max-w-[9rem] max-w-[5.6rem] justify-start items-center overflow-hidden flex-col mx-1 ${!cast.profile_path ? "hidden" : ""}`}>
                       <img className={`rounded-md w-full min-h-[80%]`} src={`${cast.profile_path ? CAST_IMG_API + cast.profile_path : castImgNotAvailable}`} />
-                      <p className="text-dark text-lg">{cast.name}</p>
-                      <p className={`text-dark text-base ${!cast.character ? "hidden" : ""}`}>({cast.character})</p>
+                      <p className="text-base text-dark md:text-lg">{cast.name}</p>
+                      <p className={`text-dark text-sm md:text-base ${!cast.character ? "hidden" : ""}`}>({cast.character})</p>
                     </div>
                   ))}
                 </div>
                 <div className="flex flex-row flex-wrap items-center justify-center mt-3">
                   {item.genres.map((genre) => (
-                    <p key={genre.id} className="px-2 py-1 m-1 text-base text-gray-900 bg-light rounded-md">
+                    <p key={genre.id} className="px-2 py-1 m-1 text-base text-gray-900 rounded-md bg-light">
                       {genre.name}
                     </p>
                   ))}
                 </div>
-                <a target="_blank" className="text-md btn bg-light my-4" rel="noreferrer" href={`https://www.youtube.com/watch?v=${video}`}>
+                <a target="_blank" className="my-4 text-md btn bg-light" rel="noreferrer" href={`https://www.youtube.com/watch?v=${video}`}>
                   Watch Trailer
                 </a>
               </div>
