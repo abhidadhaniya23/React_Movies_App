@@ -1,5 +1,5 @@
 import axios from "axios";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 
@@ -49,20 +49,22 @@ const Movies = () => {
 
   return (
     <>
-      <motion.div initial={{ opacity: 0, top: -30, position: "relative" }} animate={{ opacity: 1, top: 0 }} transition={{ duration: 0.4, delay: 0.5 }} className="container flex flex-row flex-wrap items-center justify-center px-2 mx-auto mb-10 mt-14 md:px-20">
-        {genreList.map((genre) => (
-          <button
-            key={genre.id}
-            onClick={() => {
-              setGenreID(genre.id);
-              setPage(1);
-            }}
-            className={`text-sm md:text-xl mx-1 md:mx-2 my-1 md:my-2 !py-[0.4rem] !px-[0.8rem] btn ${genre.id === genreID ? "bg-dark text-light" : "bg-light"}`}
-          >
-            {genre.name}
-          </button>
-        ))}
-      </motion.div>
+      <AnimatePresence exitBeforeEnter>
+        <motion.div initial={{ opacity: 0, top: -30, position: "relative" }} animate={{ opacity: 1, top: 0 }} transition={{ duration: 0.4, delay: 0.5 }} className="container flex flex-row flex-wrap items-center justify-center px-2 mx-auto mb-10 mt-14 md:px-20">
+          {genreList.map((genre) => (
+            <button
+              key={genre.id}
+              onClick={() => {
+                setGenreID(genre.id);
+                setPage(1);
+              }}
+              className={`text-sm md:text-xl mx-1 md:mx-2 my-1 md:my-2 !py-[0.4rem] !px-[0.8rem] btn ${genre.id === genreID ? "bg-dark text-light" : "bg-light"}`}
+            >
+              {genre.name}
+            </button>
+          ))}
+        </motion.div>
+      </AnimatePresence>
       <div className=" pt-3 md:pt-8 pb-8 min-h-[20rem]">
         <div className="container flex flex-row flex-wrap items-center justify-center mx-auto">
           {movie.map((item) => (

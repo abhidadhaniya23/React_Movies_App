@@ -33,7 +33,7 @@ const MovieCard = ({ movieItem }) => {
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {active && (
           <>
-            <motion.div animate={{ opacity: 1, top: 20 }} initial={{ top: 0 }} exit={{ top: 0, opacity: 0 }} transition={{ duration: 0.2 }} className="max-h-[85vh] md:max-h-[95vh] fixed z-30 flex flex-col justify-center items-stretch opacity-0 bg-gray-50">
+            <motion.div layout animate={{ opacity: 1, top: 20 }} initial={{ top: 0 }} exit={{ top: 0, opacity: 0 }} transition={{ duration: 0.2 }} className="max-h-[85vh] md:max-h-[95vh] fixed z-30 flex flex-col justify-center items-stretch opacity-0 bg-gray-50">
               <div className="flex flex-col items-center justify-start w-[20rem] overflow-y-scroll md:w-[60rem] mx-auto relative text-center bg-gray-50">
                 <div className="w-full">
                   <img className="object-cover w-full h-full" src={`${item.backdrop_path ? IMG_API + item.backdrop_path : COVER_NOT_AVAILABLE}`} alt="" />
@@ -68,13 +68,16 @@ const MovieCard = ({ movieItem }) => {
           </>
         )}
       </AnimatePresence>
-      <motion.div initial={{ opacity: 0, top: -50, position: "relative" }} animate={{ opacity: 1, top: 0 }} transition={{ duration: 0.3, delay: 0.2 }} onClick={() => handleMovieContent(movieItem.id, movieItem.media_type || "movie")} className={`${movieItem.vote_average === 0 ? "hidden" : ""} relative px-2 pt-2 m-5 duration-300 bg-white rounded-lg cursor-pointer hover:scale-100 md:hover:scale-105 card hover:bg-dark hover:text-light card-shadow w-72 md:w-80`}>
-        {movieItem.vote_average > 7.5 ? <span className="absolute z-10 flex items-center justify-center w-12 h-12 font-normal rounded-full md:font-bold text-md md:text-xl -top-5 -right-5 text-green bg-dark">{movieItem.vote_average}</span> : movieItem.vote_average > 6 ? <span className="absolute z-10 flex items-center justify-center w-12 h-12 font-normal rounded-full md:font-bold text-md md:text-xl -top-5 -right-5 text-yellow bg-dark">{movieItem.vote_average}</span> : <span className="absolute z-10 flex items-center justify-center w-12 h-12 font-normal rounded-full md:font-bold text-md md:text-xl -top-5 -right-5 text-red bg-dark">{movieItem.vote_average}</span>}
-        <div className="w-full overflow-hidden min-h-[25rem] md:min-h-[27rem]">{!movieItem.poster_path ? <LazyLoadImage src={`https://i.pinimg.com/originals/51/9c/18/519c18a68160ffb6d5aa5d92cd1e3d59.jpg`} alt="" effect="blur" /> : <LazyLoadImage className="hover-scale-duration" src={`${IMG_API}${movieItem.poster_path}`} alt="" effect="blur" />}</div>
-        <div className="flex flex-row items-center justify-center p-3 text-2xl">
-          <span className="text-center">{movieItem.name || movieItem.title || movieItem.original_title || movieItem.original_name}</span>
-        </div>
-      </motion.div>
+
+      <AnimatePresence exitBeforeEnter={true}>
+        <motion.div layout exit={{ opacity: 0, top: -50, position: "relative" }} initial={{ opacity: 0, top: -50, position: "relative" }} animate={{ opacity: 1, top: 0 }} transition={{ duration: 0.3, delay: 0.2 }} onClick={() => handleMovieContent(movieItem.id, movieItem.media_type || "movie")} className={`${movieItem.vote_average === 0 ? "hidden" : ""} relative px-2 pt-2 m-5 duration-300 bg-white rounded-lg cursor-pointer hover:scale-100 md:hover:scale-105 card hover:bg-dark hover:text-light card-shadow w-72 md:w-80`}>
+          {movieItem.vote_average > 7.5 ? <span className="absolute z-10 flex items-center justify-center w-12 h-12 font-normal rounded-full md:font-bold text-md md:text-xl -top-5 -right-5 text-green bg-dark">{movieItem.vote_average}</span> : movieItem.vote_average > 6 ? <span className="absolute z-10 flex items-center justify-center w-12 h-12 font-normal rounded-full md:font-bold text-md md:text-xl -top-5 -right-5 text-yellow bg-dark">{movieItem.vote_average}</span> : <span className="absolute z-10 flex items-center justify-center w-12 h-12 font-normal rounded-full md:font-bold text-md md:text-xl -top-5 -right-5 text-red bg-dark">{movieItem.vote_average}</span>}
+          <div className="w-full overflow-hidden min-h-[25rem] md:min-h-[27rem]">{!movieItem.poster_path ? <LazyLoadImage src={`https://i.pinimg.com/originals/51/9c/18/519c18a68160ffb6d5aa5d92cd1e3d59.jpg`} alt="" effect="blur" /> : <LazyLoadImage className="hover-scale-duration" src={`${IMG_API}${movieItem.poster_path}`} alt="" effect="blur" />}</div>
+          <div className="flex flex-row items-center justify-center p-3 text-2xl">
+            <span className="text-center">{movieItem.name || movieItem.title || movieItem.original_title || movieItem.original_name}</span>
+          </div>
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 };
